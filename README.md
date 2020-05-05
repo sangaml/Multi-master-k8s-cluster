@@ -1,5 +1,5 @@
 # Multi-master-k8s-cluster
-Steps to create Multi-master K8S cluster. In our case we are using 5 VMs
+Steps to create Multi-master K8S cluster. In our case we are using 5 (Ubuntu 18.04) VMs
 1. HA-Proxy server (IP=10.10.10.93)
 2. Master node = 2 (IP = 10.10.10.90, 10.10.10.91)
 3. Worker node = 2 (IP = 10.10.10.100, 10.10.10.101)
