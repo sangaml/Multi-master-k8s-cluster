@@ -187,6 +187,7 @@ EOF
 $ sudo sysctl --system
 
 $ sudo modprobe br_netfilter
+
 # Installing and configuring Etcd (Perform following operation on "master node -1" with non-root user) 
 
 $ sudo mkdir /etc/etcd /var/lib/etcd
@@ -283,8 +284,7 @@ $ ETCDCTL_API=3 etcdctl member list
 
 #Output looks like this
 
-92b71ce0c4151960, started, 10.10.10.90, https://10.10.10.90:2380, https://10.10.10.90:2379
-da0ab6f3bb775983, started, 10.10.10.91, https://10.10.10.91:2380, https://10.10.10.91:2379
+![](images/output3.PNG)
 
 # Initializing the master nodes (Perform following operation on "master node -1" with non-root user)
 
@@ -392,36 +392,14 @@ $ chmod 600 ~/.kube/config
 $ kubectl get nodes
 
 Output:-
-ubuntu@ha-proxy:~$ kubectl get no
-NAME       STATUS   ROLES    AGE   VERSION
-master-1   NotReady    master   11h   v1.18.2
-master-2   NotReady    master   11h   v1.18.2
-worker-1   NotReady    <none>   11h   v1.18.2
-worker-2   NotReady    <none>   11h   v1.18.2
+ 
+![](images/output1.PNG)
   
 # Deploying the overlay network (Perform this operation on ha-proxy node)
 
 $ kubectl apply -f https://raw.githubusercontent.com/sangaml/Multi-master-k8s-cluster/master/calico.yaml 
 
-ubuntu@ha-proxy:~$ kubectl get po -n kube-system
-NAME                                       READY   STATUS    RESTARTS   AGE
-calico-kube-controllers-6fcbbfb6fb-5xcbg   1/1     Running   1          110m
-calico-node-67crj                          1/1     Running   1          110m
-calico-node-bjprh                          1/1     Running   1          110m
-calico-node-dfqp7                          1/1     Running   1          110m
-calico-node-q4qc9                          1/1     Running   1          110m
-coredns-66bff467f8-mmw6h                   1/1     Running   1          11h
-coredns-66bff467f8-rhrcp                   1/1     Running   1          11h
-kube-apiserver-master-1                    1/1     Running   2          11h
-kube-apiserver-master-2                    1/1     Running   2          11h
-kube-controller-manager-master-1           1/1     Running   3          11h
-kube-controller-manager-master-2           1/1     Running   4          11h
-kube-proxy-85kn9                           1/1     Running   2          11h
-kube-proxy-ctksl                           1/1     Running   2          11h
-kube-proxy-gt9k8                           1/1     Running   2          11h
-kube-proxy-mbk2r                           1/1     Running   2          11h
-kube-scheduler-master-1                    1/1     Running   3          11h
-kube-scheduler-master-2                    1/1     Running   2          11h
+![](images/output2.PNG)
 
 #Make sure all pods are running
 
