@@ -401,5 +401,29 @@ worker-2   NotReady    <none>   11h   v1.18.2
   
 # Deploying the overlay network (Perform this operation on ha-proxy node)
 
+$ kubectl apply -f https://raw.githubusercontent.com/sangaml/Multi-master-k8s-cluster/master/calico.yaml 
 
+ubuntu@ha-proxy:~$ kubectl get po -n kube-system
+NAME                                       READY   STATUS    RESTARTS   AGE
+calico-kube-controllers-6fcbbfb6fb-5xcbg   1/1     Running   1          110m
+calico-node-67crj                          1/1     Running   1          110m
+calico-node-bjprh                          1/1     Running   1          110m
+calico-node-dfqp7                          1/1     Running   1          110m
+calico-node-q4qc9                          1/1     Running   1          110m
+coredns-66bff467f8-mmw6h                   1/1     Running   1          11h
+coredns-66bff467f8-rhrcp                   1/1     Running   1          11h
+kube-apiserver-master-1                    1/1     Running   2          11h
+kube-apiserver-master-2                    1/1     Running   2          11h
+kube-controller-manager-master-1           1/1     Running   3          11h
+kube-controller-manager-master-2           1/1     Running   4          11h
+kube-proxy-85kn9                           1/1     Running   2          11h
+kube-proxy-ctksl                           1/1     Running   2          11h
+kube-proxy-gt9k8                           1/1     Running   2          11h
+kube-proxy-mbk2r                           1/1     Running   2          11h
+kube-scheduler-master-1                    1/1     Running   3          11h
+kube-scheduler-master-2                    1/1     Running   2          11h
 
+#Make sure all pods are running
+
+Now All Set :)
+All The Best !!
