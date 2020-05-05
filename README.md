@@ -297,7 +297,7 @@ cgroupDriver: systemd
 EOF
 
 $ cat<<EOF | sudo tee config.yaml
-apiVersion: kubeadm.k8s.io/v1alpha3
+apiVersion: kubeadm.k8s.io/v1beta2
 kind: ClusterConfiguration
 kubernetesVersion: stable
 apiServerCertSANs:
